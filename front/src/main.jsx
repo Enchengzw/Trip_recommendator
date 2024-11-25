@@ -1,14 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import SearchBar from './searchbar'
-import Map from './map'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react';
+import { MyProvider } from './context.jsx';
+import SearchBar from './searchbar.jsx';
+import Map from './map.jsx';
+import './index.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const App = () => (
+  <MyProvider>
     <div className="wrapper">
       <SearchBar />
       <Map />
     </div>
-  </StrictMode>,
-)
+  </MyProvider>
+);
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
